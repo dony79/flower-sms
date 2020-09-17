@@ -36,5 +36,15 @@ public class PolicyHandler{
             System.out.println("##### listener SendingSms : " + orderCanceled.toJson());
         }
     }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverReviewRequested_SendingSms(@Payload ReviewRequested reviewRequested){
+
+        if(reviewRequested.isMe()){
+            System.out.println("##### listener SendingSms : " + reviewRequested.toJson());
+        }
+    }
+    
+
+
 
 }
